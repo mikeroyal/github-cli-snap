@@ -1,0 +1,24 @@
+
+
+name: github-cli
+version: git
+summary: A GitHub CLI tool.
+description: |
+  GitHub CLI is a tool that brings pull requests, issues, and other GitHub concepts to the terminal next to where you are already working with git and your code.
+
+confinement: devmode
+base: core18
+
+parts:
+  github-cli:
+    plugin: go
+    go-importpath: github.com/cli/cli
+    source: .
+    source-type: git
+    build-packages:
+      - gcc
+
+apps:
+  github-cli:
+    command: bin/github-cli
+
